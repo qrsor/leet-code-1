@@ -19,7 +19,9 @@ class SolutionTest
 				Arguments.of("ab", "ba", true),
 				Arguments.of("aab", "ba", false),
 				Arguments.of("ab", "bca", false),
-				Arguments.of("ab", "cab", true)
+				Arguments.of("ab", "cab", true),
+				Arguments.of("abc", "lecabee", true),
+				Arguments.of("abc", "lecaabee", false)
 		);
 	}
 

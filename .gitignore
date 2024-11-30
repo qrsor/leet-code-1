@@ -41,3 +41,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store!/.gradle/
+
+### Gradle ###
+gradlew
+gradlew.bat
+gradle/wrapper

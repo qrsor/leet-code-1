@@ -14,11 +14,11 @@ class SolutionTest
 	public static Stream<Arguments> provideParameters()
 	{
 		return Stream.of(
-//				Arguments.of(new int[] { 1, -1 }, 1, new int[] { 1, -1 }),
-//				Arguments.of(new int[] { 0, 1, 2 }, 1, new int[] { 0, 1, 2 }),
-//				Arguments.of(new int[] { 0, 1, 2 }, 2, new int[] { 1, 2 }),
-//				Arguments.of(new int[] { 0, 1, 2 }, 3, new int[] { 2 }),
-//				Arguments.of(new int[] { 1, 2, 1, 0, 4, 2, 6 }, 3, new int[] { 2, 2, 4, 4, 6 }),
+				Arguments.of(new int[] { 1, -1 }, 1, new int[] { 1, -1 }),
+				Arguments.of(new int[] { 0, 1, 2 }, 1, new int[] { 0, 1, 2 }),
+				Arguments.of(new int[] { 0, 1, 2 }, 2, new int[] { 1, 2 }),
+				Arguments.of(new int[] { 0, 1, 2 }, 3, new int[] { 2 }),
+				Arguments.of(new int[] { 1, 2, 1, 0, 4, 2, 6 }, 3, new int[] { 2, 2, 4, 4, 6 }),
 				Arguments.of(new int[] { 1, 2, 1, 0, 4, 2, 6 }, 5, new int[] { 4, 4, 6 })
 		);
 	}

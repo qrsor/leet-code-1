@@ -16,7 +16,8 @@ class SolutionTest {
     public static Stream<Arguments> shouldCalculateEatingSpeedArguments() {
         return Stream.of(
                 Arguments.of(new int[]{1, 4, 3, 2}, 9, 2),
-                Arguments.of(new int[]{25, 10, 23, 4}, 4, 25)
+                Arguments.of(new int[]{25, 10, 23, 4}, 4, 25),
+                Arguments.of(new int[]{805306368, 805306368, 805306368}, 1000000000, 3)
         );
     }
 

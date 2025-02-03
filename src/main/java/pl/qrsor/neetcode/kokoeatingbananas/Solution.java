@@ -25,7 +25,7 @@ class Solution {
         return res;
     }
 
-    private int calculateEatTime(int[] piles, int k) {
-        return Arrays.stream(piles).map(pile -> Math.ceilDiv(pile, k)).sum();
+    private long calculateEatTime(int[] piles, int k) {
+        return Arrays.stream(piles).asLongStream().map(pile -> Math.ceilDiv((long)pile, k)).sum();
     }
 }

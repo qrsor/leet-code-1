@@ -1,5 +1,7 @@
 package pl.qrsor.neetcode.mergetwosortedlinkedlists;
 
+import pl.qrsor.neetcode.ListNode;
+
 public class Solution {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

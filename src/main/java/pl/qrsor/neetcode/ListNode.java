@@ -2,6 +2,7 @@ package pl.qrsor.neetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ListNode {
     public int val;
@@ -45,6 +46,17 @@ public class ListNode {
             curr.next = new ListNode(Character.getNumericValue(numberAsString.charAt(i)));
             curr = curr.next;
         }
+
+        return dummy.next;
+    }
+
+    public static ListNode fromStream(Stream<Integer> values) {
+        var dummy = new ListNode(0);
+        //noinspection ResultOfMethodCallIgnored
+        values.map(ListNode::new).reduce(dummy, (prv, nxt) -> {
+            prv.next = nxt;
+            return nxt;
+        });
 
         return dummy.next;
     }

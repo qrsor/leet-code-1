@@ -1,9 +1,5 @@
 package pl.qrsor.neetcode;
 
-import pl.qrsor.neetcode.reverselinkedlist.Solution;
-
-import java.util.List;
-
 public class ReorderLinkedList {
     public void reorderList(ListNode head) {
         if (head == null) return;

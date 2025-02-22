@@ -1,5 +1,6 @@
 package pl.qrsor.neetcode;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ListNodeTest {
 
-    public static Stream<Arguments> listFromIntegerInput() {
+    public static Stream<Arguments> listFromIntegerReversedInput() {
         return Stream.of(
                 Arguments.of(0, List.of(0)),
                 Arguments.of(9, List.of(9)),
@@ -27,10 +28,10 @@ class ListNodeTest {
     }
 
     @ParameterizedTest
-    @MethodSource("listFromIntegerInput")
-    void shouldProduceListFromInteger(int input, List<Integer> expected) {
+    @MethodSource("listFromIntegerReversedInput")
+    void shouldProduceListFromIntegerReversed(int input, List<Integer> expected) {
         //when
-        var result = ListNode.fromInteger(input);
+        var result = ListNode.fromIntegerReversed(input);
 
         //then
         assertThat(result.toValList()).containsExactlyElementsOf(expected);
@@ -45,4 +46,25 @@ class ListNodeTest {
         //then
         assertThat(result.toValList()).containsExactlyElementsOf(expected);
     }
+
+    @Test
+    void shouldProduceListFromIntegers() {
+        //when
+        var result = ListNode.fromIntegers(1, 2, 3);
+
+        //then
+        assertThat(result).isNotNull();
+        assertThat(result.toValList()).containsExactly(1, 2, 3);
+    }
+
+    @Test
+    void shouldProduceNullFromIntegersGivenEmptyList() {
+        //when
+        var result = ListNode.fromIntegers();
+
+        //then
+        assertThat(result).isNull();
+    }
+
+
 }

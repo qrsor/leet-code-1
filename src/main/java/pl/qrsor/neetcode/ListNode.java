@@ -1,5 +1,7 @@
 package pl.qrsor.neetcode;
 
+import jakarta.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -20,6 +22,19 @@ public class ListNode {
         this.next = next;
     }
 
+
+    @Nullable
+    public static ListNode fromIntegers(int... integers) {
+        var dummy = new ListNode();
+        var current = dummy;
+        for (int integer : integers) {
+            current.next = new ListNode(integer);
+            current = current.next;
+        }
+
+        return dummy.next;
+    }
+
     public List<Integer> toValList() {
         var values = new ArrayList<Integer>();
         var node = this;
@@ -37,7 +52,7 @@ public class ListNode {
      *
      * @param number number to convert
      */
-    public static ListNode fromInteger(int number) {
+    public static ListNode fromIntegerReversed(int number) {
         var numberAsString = Integer.toString(number);
 
         var dummy = new ListNode(0);

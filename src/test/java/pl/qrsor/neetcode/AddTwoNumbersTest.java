@@ -48,7 +48,7 @@ class AddTwoNumbersTest {
     @Test
     public void shouldHandleDifferentDigitCountWithCarry() {
         //given
-        var l1 = ListNode.fromInteger(128);
+        var l1 = ListNode.fromIntegerReversed(128);
         var l2 = new ListNode(3);
 
         //when
@@ -61,8 +61,8 @@ class AddTwoNumbersTest {
     @Test
     public void shouldHandleDifferentDigitCountWithCarryAndZeros() {
         //given
-        var l1 = ListNode.fromInteger(128);
-        var l2 = ListNode.fromInteger(902);
+        var l1 = ListNode.fromIntegerReversed(128);
+        var l2 = ListNode.fromIntegerReversed(902);
 
         //when
         var result = new AddTwoNumbers().addTwoNumbers(l1, l2);

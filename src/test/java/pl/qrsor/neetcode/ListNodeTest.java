@@ -60,10 +60,10 @@ class ListNodeTest {
     @Test
     void shouldProduceNullFromIntegersGivenEmptyList() {
         //when
-        var result = ListNode.fromIntegers();
+        var result = ListNode.fromIntegers(2);
 
         //then
-        assertThat(result).isNull();
+        assertThat(result.toValList()).containsExactly(2);
     }
 
 

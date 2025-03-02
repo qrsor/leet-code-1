@@ -8,10 +8,10 @@ public class ReverseList {
         var curr = head;
 
         while (curr!=null) {
-            var tmp = curr.next;
+            var nxt = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = tmp;
+            curr = nxt;
         }
 
         return prev;

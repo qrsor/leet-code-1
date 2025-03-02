@@ -1,5 +1,6 @@
 package pl.qrsor.neetcode;
 
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -23,16 +24,16 @@ public class ListNode {
     }
 
 
-    @Nullable
-    public static ListNode fromIntegers(int... integers) {
-        var dummy = new ListNode();
-        var current = dummy;
-        for (int integer : integers) {
-            current.next = new ListNode(integer);
+    @Nonnull
+    public static ListNode fromIntegers(int firstValue, int... otherValues) {
+        var first = new ListNode(firstValue);
+        var current = first;
+        for (int val : otherValues) {
+            current.next = new ListNode(val);
             current = current.next;
         }
 
-        return dummy.next;
+        return first;
     }
 
     public List<Integer> toValList() {
@@ -74,5 +75,10 @@ public class ListNode {
         });
 
         return dummy.next;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d->%s", val, next == null ? "null" : next.val);
     }
 }

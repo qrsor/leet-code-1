@@ -22,7 +22,7 @@ class TreeNodeTest {
     @MethodSource("shouldCreateBinaryTreeFromValuesInput")
     void shouldCreateBinaryTreeFromValues(List<Integer> input) {
         //when
-        var result = TreeNode.fromIntegers(input.getFirst(), input.subList(1, input.size()).stream().mapToInt(Integer::intValue).toArray());
+        var result = TreeNode.fromIntegers(input);
 
         //then
         assertThat(result.toValList()).containsExactlyElementsOf(input);
@@ -31,7 +31,7 @@ class TreeNodeTest {
     @Test
     void shouldCreateSingleNodeTree() {
         //when
-        var result = TreeNode.fromIntegers(999);
+        var result = TreeNode.fromIntegers(List.of(999));
 
         //then
         assertThat(result.toValList()).containsExactly(999);

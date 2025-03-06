@@ -1,12 +1,10 @@
 package pl.qrsor.neetcode;
 
-import jakarta.annotation.Nonnull;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import jakarta.annotation.Nonnull;
 
 public class TreeNode {
     int val;
@@ -27,22 +25,28 @@ public class TreeNode {
     }
 
     @Nonnull
-    public static TreeNode fromIntegers(int first, int... rest) {
+    public static TreeNode fromIntegers(List<Integer> values) {
 
-        var values = Arrays.stream(rest).boxed().collect(Collectors.toCollection(LinkedList::new));
-        TreeNode root = new TreeNode(first);
+        TreeNode root = new TreeNode(values.getFirst());
         var queue = new LinkedList<TreeNode>();
         queue.add(root);
 
-        while (!values.isEmpty()) {
-            var current = queue.pop();
-            current.left = new TreeNode(values.pop());
-            queue.add(current.left);
+        var i = 1;
+        while (i < values.size() && !queue.isEmpty()) {
+            var current = queue.poll();
 
-            if (!values.isEmpty()) {
-                current.right = new TreeNode(values.pop());
+            Integer leftVal = values.get(i);
+            if (leftVal != null) {
+                current.left = new TreeNode(leftVal);
+                queue.add(current.left);
+            }
+            i++;
+
+            if (i < values.size() && values.get(i)!=null) {
+                current.right = new TreeNode(values.get(i));
                 queue.add(current.right);
             }
+            i++;
         }
 
         return root;

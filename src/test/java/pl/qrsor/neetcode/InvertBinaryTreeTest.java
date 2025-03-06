@@ -24,7 +24,7 @@ class InvertBinaryTreeTest {
     @MethodSource("shouldInvertTreeInput")
     void shouldInvertTree(List<Integer> input, List<Integer> expected) {
         //given
-        var root = TreeNode.fromIntegers(input.getFirst(), input.subList(1, input.size()).stream().mapToInt(Integer::intValue).toArray());
+        var root = TreeNode.fromIntegers(input);
 
         //when
         var result = new InvertBinaryTree().invertTree(root);

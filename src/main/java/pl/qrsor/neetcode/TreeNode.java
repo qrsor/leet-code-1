@@ -33,20 +33,25 @@ public class TreeNode {
 
         var i = 1;
         while (i < values.size() && !queue.isEmpty()) {
-            var current = queue.poll();
+            var current = queue.peek();
+            var popFromQueue = false;
 
             Integer leftVal = values.get(i);
             if (leftVal != null) {
                 current.left = new TreeNode(leftVal);
                 queue.add(current.left);
+                popFromQueue = true;
             }
             i++;
 
             if (i < values.size() && values.get(i)!=null) {
                 current.right = new TreeNode(values.get(i));
                 queue.add(current.right);
+                popFromQueue = true;
             }
             i++;
+
+            if(popFromQueue) queue.pop();
         }
 
         return root;
@@ -57,15 +62,18 @@ public class TreeNode {
         var queue = new LinkedList<TreeNode>();
         queue.add(this);
 
+        var index = 0;
         while (!queue.isEmpty()) {
             var node = queue.pop();
-            if (node == null) {
-                result.add(null);
-            } else {
-                result.add(node.val);
+            if (node != null) {
+                while (result.size() < index) {
+                    result.add(null);
+                }
+                result.add(index, node.val);
                 queue.add(node.left);
                 queue.add(node.right);
             }
+            index++;
         }
 
         //trim nulls at end

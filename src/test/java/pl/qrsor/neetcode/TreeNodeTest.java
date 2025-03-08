@@ -1,5 +1,6 @@
 package pl.qrsor.neetcode;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -26,6 +27,18 @@ class TreeNodeTest {
 
         //then
         assertThat(result.toValList()).containsExactlyElementsOf(input);
+    }
+
+    @Test
+    void shouldCreateBinaryTreeFromValuesWithNulls() {
+        //given
+        var values = Arrays.asList(1, null, 2, null, null, 3);
+
+        //when
+        var result = TreeNode.fromIntegers(values);
+
+        //then
+        assertThat(result.toValList()).containsExactly(1, null, 2, 3);
     }
 
     @Test
